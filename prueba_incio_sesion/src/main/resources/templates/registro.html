@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> REGISTRO </title>
+
+    <link rel="stylesheet" th:href="@{/css/stylo_logo.css}">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container w-75 mt-5 rounded-25 shadow">
+        <div class="row align-items-lg-stretch">
+            <div class="col d-none text-center d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+                <a class="fw-bold text-center p-5 text-info py-4 text-decoration-none" href="#" th:href="@{/}">
+                    FORMULARIO DE REGITRO</a>
+                <img th:src="@{/images/SSTR_deatils-removebg-previewcopia.png}" class="bg" alt="mi logo oficial">
+            </div>
+            <div class="col p-5 rounded-end">
+                <div class="text-end">
+                    <img th:src="@{/images/Registro.png}" width="64" alt="logo registro">
+                </div>
+                <h2 class="fw-bold text-center text-info py-4">INGRESE LOS SIGUIENTES DATOS</h2>
+                
+               
+                <form th:action="@{/registro}" method="post" th:object="${usuario}">
+                    <div th:if=${param.exito}>
+                        <div class="alert alert-info">Se ha registrado exitosamente a
+                                            la aplicación
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="nombre" class="form-label text-info">Nombre</label>
+                        <input th:field="*{nombre}" id="nombre" type="text" class="form-control bg-transparent text-light" name="nombre" required autofocus="autofocus" placeholder="Digite su nombre">
+                    </div>
+                    <div class="mb-4">
+                        <label for="apellido" class="form-label text-info">Apellido</label>
+                        <input th:field="*{apellido}" id="apellido" type="text" class="form-control bg-transparent text-light" name="apellido" required autofocus="autofocus" placeholder="Digite su apellido">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label text-info">Correo electronico</label>
+                        <input th:field="*{email}" id="email" type="email" class="form-control bg-transparent text-light" name="email" required autofocus="autofocus" placeholder="Digite su email ID">
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label text-info">Contraseña</label>
+                        <input  th:field="*{password}" id="password" type="password" class="form-control bg-transparent text-light" name="password" required autofocus="autofocus" placeholder="Ingresa una contraseña">
+                    </div>
+                    <div class="mb-4">
+                        <input  id="connected" type="checkbox" name="connected" class="form-check-input text-decoration-line-through bg-transparent">
+                        <label for="connected" class="form-check-label text-info" >Acepto terminos & condiciones</label>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary"> Enviar</button>
+                    </div>
+                    <div class="my-3 text-info">
+                        <span>¡Estoy registrado! <a th:href="@{/login}">Iniciar sesión</a></span>
+                    </div>
+                    <span><a href="#">Buscar mi Usuario</a></span>
+                </form>
+
+            <!-- Login redes sociales-->
+                <div class="container w-100 my-5">
+                    <div class="row text-center">
+                        <div class="col-12 text-info">Iniciar Sesión</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-outline-primary w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <i class="ri-google-fill"></i>
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">Google</div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <i class="ri-instagram-line"></i>
+                                    </div>
+                                    <div class="col-12 col-md-10  text-center">Instagram</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>

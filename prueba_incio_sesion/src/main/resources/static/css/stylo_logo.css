@@ -1,0 +1,10 @@
+body{
+    background : #1C2833;
+    background : linear-gradient(to right, #34495E, #1C2833);
+}
+.bg{
+    margin-top: 10rem;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
