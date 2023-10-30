@@ -1,0 +1,26 @@
+/* Estilo para centrar el botón */
+        .center-button {
+            text-align: center;
+        }
+
+        /* Estilo para el formulario */
+        form {
+            width: 300px; /* Ancho del formulario */
+            margin: 0 auto; /* Centra horizontalmente */
+        }
+
+        /* Estilo para los campos de entrada */
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        /* Estilo para el botón */
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color del texto del botón */
+            border: none;
+        }

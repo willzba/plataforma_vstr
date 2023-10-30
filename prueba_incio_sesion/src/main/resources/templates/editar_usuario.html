@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina dashboard</title>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" th:href="@{/css/index_style.css}">
+    <link rel="stylesheet" th:href="@{/css/contenidoindex.css}">
+    <link rel="stylesheet" th:href="@{/css/menuPerfil.css}">
+    <link rel="stylesheet" th:href="@{/css/style_tabla.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="bx bx-menu" id="sidebarOpen"></i>
+            <img th:src="@{/images/SSTR_logo-removebgcopia.png}" width="40" alt="logo">
+            V S T R
+        </div>
+        <div class="menu">
+            <i class="bx bx-user-circle"></i>
+            <button class="boton-desplegable"><span sec:authentication="principal.username"></span></button>
+            <ul class="menu-desplegable">
+                <li><a href="#" class="nav_link">Configurar</a></li>
+                <li><a th:href="@{/dasboard}" class="nav_link">Editar</a></li>
+                <li><a href="#" class="nav_link">Agregar Web</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <nav class="sidebar">
+        <div class="menu_content">
+            <ul class="menu_items">
+                <li class="menu_item">
+                    <a th:href="@{/}" class="nav_link">
+                  <span class="navlink_icon">
+                    <i class="bx bx-home"></i>
+                  </span>
+                        <span class="navlink">Inicio</span>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a th:href="@{/dasboard}" class="nav_link">
+                    <span class="navlink_icon">
+                    <i class="bx bxs-dashboard"></i>
+                  </span>
+                    <span class="navlink">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a th:href="@{/misVideos}" class="nav_link">
+                    <span class="navlink_icon">
+                      <i class="bx bx-video"></i>
+                    </span>
+                        <span class="navlink">Mis Videos</span>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                    <i class="bx bx-layer"></i>
+                  </span>
+                        <span class="navlink">Services</span>
+                    </a>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                    <i class="bx bx-cloud-upload"></i>
+                  </span>
+                        <span class="navlink">Uploads</span>
+                    </a>
+                </li>
+                <li class="menu_item">
+                        <a href="#" class="nav_link">
+                  <span class="navlink_icon">
+                    <i class="bx bx-share-alt"></i>
+                  </span>
+                            <span class="navlink">Emitir Video</span>
+                        </a>
+                </li>
+            </ul>
+            <div class="menu_content">
+                <div class="menu_items" id="login">
+                    <a th:href="@{/logout}" class="nav_link">
+                    <span class="navlink_icon">
+                        <i class="bx bx-log-out-circle"></i>
+                    </span>
+                        <span class="navlink">login out</span>
+                    </a>
+                </div>
+            </div>
+            <div class="collapse_content">
+                <div class="collapse expand_sidebar">
+                    <span> Expand</span>
+                    <i class="bx bx-chevron-right"></i>
+                </div>
+                <div class="collapse collapse_sidebar">
+                    <span> Collapse</span>
+                    <i class="bx bx-chevron-left"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="contenidos">
+        <h1 th:text="${titulo}"></h1>
+        <form th:action="@{/usuarios/{id}(id=${usuario.id})}" th:object="${usuario}" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Nombre">
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" th:field="*{apellido}" id="apellido" name="apellido" placeholder="Apellido">
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" th:field="*{email}" id="email" name="email" placeholder="Correo Electrónico">
+
+            <!-- Botón "Actualizar" con estilo centrado -->
+            <div class="center-button">
+                <input type="submit" value="Actualizar">
+            </div>
+        </form>
+    </section>
+
+    <script th:src="@{/js/sidebar.js}"></script>
+    <script th:src="@{/js/ContenidoIndex.js}"></script>
+    <script th:src="@{/js/menuPerfil.js}"></script>
+
+    <!-- link export to excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
+    <script th:src="@{/js/exportar_a_excel.js}"></script>
+</body>
+</html>
